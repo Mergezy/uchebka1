@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uchebka1.Admin">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uchebka1.Admin">
     <tabs>
         <Tab style="-fx-background-color: #8d5f47;" text="Акаунты ">
             <content>
@@ -23,15 +23,11 @@
                                 <TableColumn fx:id="phone_table_accounts" prefWidth="134.137451171875" style="-fx-background-color: #7c5643;" text="Номер телефона" />
                             </columns>
                         </TableView>
-                        <TextField fx:id="id_accounts" layoutX="45.0" layoutY="43.0" prefHeight="32.0" prefWidth="200.0" promptText="id">
+                        <TextField fx:id="login_accounts" layoutX="42.0" layoutY="72.0" prefHeight="32.0" prefWidth="200.0" promptText="login">
                             <font>
                                 <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                             </font></TextField>
-                        <TextField fx:id="login_accounts" layoutX="45.0" layoutY="101.0" prefHeight="32.0" prefWidth="200.0" promptText="login">
-                            <font>
-                                <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
-                            </font></TextField>
-                        <TextField fx:id="phone_accounts" layoutX="44.0" layoutY="159.0" prefHeight="32.0" prefWidth="200.0" promptText="phone">
+                        <TextField fx:id="phone_accounts" layoutX="42.0" layoutY="130.0" prefHeight="32.0" prefWidth="200.0" promptText="phone">
                             <font>
                                 <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                             </font></TextField>
@@ -43,28 +39,27 @@
                             <font>
                                 <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                             </font></Button>
-                        <Label layoutX="45.0" layoutY="26.0" text=" ID:" />
-                        <Label layoutX="44.0" layoutY="84.0" text="Логин:">
+                        <Label layoutX="41.0" layoutY="55.0" text="Логин:">
                             <font>
                                 <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                             </font>
                         </Label>
-                        <Label layoutX="45.0" layoutY="142.0" text="Номер телефона:">
+                        <Label layoutX="42.0" layoutY="113.0" text="Номер телефона:">
                             <font>
                                 <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                             </font>
                         </Label>
-                  <Button fx:id="back" ellipsisString="↩" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="16.0" prefWidth="14.0" style="-fx-background-color: #7c5643;" text="&lt;" textAlignment="CENTER" textOverrun="CLIP">
+                  <Button fx:id="back" ellipsisString="↩" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="3.0" prefWidth="31.0" style="-fx-background-color: #7c5643;" text="&lt;" textAlignment="CENTER" textOverrun="CLIP">
                      <font>
-                        <Font size="10.0" />
+                        <Font size="11.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="phone_accounts1" layoutX="44.0" layoutY="218.0" prefHeight="32.0" prefWidth="200.0" promptText="phone">
+                  <TextField fx:id="password_accounts" layoutX="42.0" layoutY="189.0" prefHeight="32.0" prefWidth="200.0" promptText="password">
                      <font>
                         <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="45.0" layoutY="201.0" text="Пароль:">
+                  <Label layoutX="42.0" layoutY="172.0" text="Пароль:">
                      <font>
                         <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                      </font>

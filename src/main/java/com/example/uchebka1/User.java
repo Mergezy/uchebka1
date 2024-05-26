@@ -61,9 +61,4 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    public void getAllInfo() {System.out.println("login" + login +
-            " password " + password +
-            " rol " + rol +
-            " phone " + phone);
-    }
 }

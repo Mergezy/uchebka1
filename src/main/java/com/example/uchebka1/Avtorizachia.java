@@ -86,7 +86,6 @@ public class Avtorizachia {
             if (result.next()) {
                 user.setPhone(result.getString("phone"));
                 user.setRol(result.getString("rol"));
-                System.out.println("Пользователь: " + loginText + " имеет роль: " + user.getRol());
                 openRoleBasedWindow();
             } else {
                 showAlert("Пользователь не найден или неверный пароль.");
@@ -109,7 +108,6 @@ public class Avtorizachia {
                 showAlert("Неизвестная роль пользователя.");
                 return;
         }
-
         loadWindow(fxmlFile);
     }
 

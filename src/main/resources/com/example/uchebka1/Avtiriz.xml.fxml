@@ -15,17 +15,12 @@
             <Image url="@../../../image/b013fafd89dbc26e9095837057e2e80a.jpeg" />
          </image>
       </ImageView>
-      <Label layoutX="293.0" layoutY="12.0" prefHeight="19.0" prefWidth="105.0" text="MegaEvent" textFill="WHITE">
-         <font>
-            <Font name="Noto Sans Kannada ExtraLight" size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="login_text" layoutX="403.0" layoutY="139.0" prefHeight="27.0" prefWidth="185.0" promptText="Логин" style="-fx-background-color: #c2a78c;">
+      <TextField fx:id="login_text" layoutX="403.0" layoutY="139.0" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #c2a78c;">
          <font>
             <Font name="Noto Sans Kannada ExtraLight" size="10.0" />
          </font>
       </TextField>
-      <TextField fx:id="pasword_text" layoutX="403.0" layoutY="193.0" prefHeight="27.0" prefWidth="185.0" promptText="Пароль" style="-fx-background-color: #c2a78c;">
+      <TextField fx:id="pasword_text" layoutX="403.0" layoutY="193.0" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #c2a78c;">
          <font>
             <Font name="Noto Sans Kannada ExtraLight" size="10.0" />
          </font>
@@ -50,7 +45,7 @@
             <Font name="Noto Sans Kannada ExtraLight" size="10.0" />
          </font>
       </Label>
-      <Button fx:id="regictr_button" layoutX="501.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#Entrance" style="-fx-background-color: #7c5643;" text="Зарегистрироваться ">
+      <Button fx:id="regictr_button" layoutX="430.0" layoutY="366.0" mnemonicParsing="false" onMouseClicked="#Entrance" style="-fx-background-color: #7c5643;" text="Зарегистрироваться ">
          <font>
             <Font name="Baskerville" size="12.0" />
          </font>

@@ -42,9 +42,6 @@ public class DataHelper extends Confics {
 
         String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE " +
                 Const.USERS_USERNAME + "=? AND " + Const.USERS_PASSWORD + "=?";
-        System.out.println("Executing query: " + select);
-        System.out.println("USERS_USERNAME: " + Const.USERS_USERNAME);
-        System.out.println("USERS_PASSWORD: " + Const.USERS_PASSWORD);
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             prSt.setString(1, user.getLogin());
@@ -54,6 +51,13 @@ public class DataHelper extends Confics {
             throw new RuntimeException(e);
         }
         return resSet;
+    }
+    public void deleteUser(String userId) throws SQLException, ClassNotFoundException {
+        String delete = "DELETE FROM " + Const.USER_TABLE + " WHERE " + Const.USERS_ID + "=?";
+        try (PreparedStatement prSt = getDbConnection().prepareStatement(delete)) {
+            prSt.setString(1, userId);
+            prSt.executeUpdate();
+        }
     }
     public ObservableList<User> getAllUsers() {
         ObservableList<User> userList = FXCollections.observableArrayList();

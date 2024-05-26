@@ -31,11 +31,21 @@ public class Registr {
     @FXML
     private Button registr_button;
 
+    DataHelper dbHandler = new DataHelper();
+
 
     @FXML
     void initialize() {
         registr_button.setOnAction(event -> {
-            signUpNewUser();
+            signUpNewUser(TF3.getText(), login_registr.getText(), phone_registr.getText());
+            if(!login_registr.getText().isEmpty() && !TF3.getText().isEmpty() && !phone_registr.getText().isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Вы зарегистрированы!Вернитесь на главную форму и авторизуйтесь!");
+                alert.showAndWait();
+            }
+
         });
 
     }
@@ -55,23 +65,17 @@ public class Registr {
         stage.setScene(new Scene(root));
         stage.show();
     }
-    private void signUpNewUser() {
-        String p1 = TF3.getText();
-        String password = hashString(p1);
-        DataHelper dbHandler = new DataHelper();
 
-        String Name = login_registr.getText();
-        String phone = phone_registr.getText();
+    public void signUpNewUser(String login_registr, String passwordS, String phone_registr) {
+        String p1 = passwordS;
+        String password = hashString(p1);
+
+        String Name = login_registr;
+        String phone = phone_registr;
 
         User user = new User(Name, password, phone,"2");
-
-        if(!login_registr.getText().isEmpty() && !TF3.getText().isEmpty() && !phone_registr.getText().isEmpty()){
+        if(!login_registr.isEmpty() && !passwordS.isEmpty() && !phone_registr.isEmpty()){
             dbHandler.sinUpUser(user);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Вы зарегистрированы!Вернитесь на главную форму и авторизуйтесь!");
-            alert.showAndWait();
 
         }else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -81,6 +85,7 @@ public class Registr {
             alert.showAndWait();
         }
     }
+
     private String hashString(String password) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
