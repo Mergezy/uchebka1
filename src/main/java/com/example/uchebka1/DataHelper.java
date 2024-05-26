@@ -1,5 +1,8 @@
 package com.example.uchebka1;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 
 public class DataHelper extends Confics {
@@ -21,7 +24,6 @@ public class DataHelper extends Confics {
         String insert = "INSERT INTO " + Const.USER_TABLE + " (" +
                 Const.USERS_USERNAME + ", " + Const.USERS_PASSWORD + ", " + Const.USERS_PHONE + ", rol) " +
                 "VALUES (?, ?, ?, ?)";
-
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
             prSt.setString(1, user.getLogin());
@@ -47,11 +49,27 @@ public class DataHelper extends Confics {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             prSt.setString(1, user.getLogin());
             prSt.setString(2, user.getPassword());
-
             resSet = prSt.executeQuery();
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         return resSet;
+    }
+    public ObservableList<User> getAllUsers() {
+        ObservableList<User> userList = FXCollections.observableArrayList();
+        String select = "SELECT * FROM " + Const.USER_TABLE;
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            ResultSet resSet = prSt.executeQuery();
+            while (resSet.next()) {
+                User user = new User(resSet.getString("idusers"),
+                        resSet.getString("login"),
+                        resSet.getString("phone"));
+                userList.add(user);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return userList;
     }
 }

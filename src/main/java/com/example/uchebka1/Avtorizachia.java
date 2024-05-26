@@ -82,9 +82,9 @@ public class Avtorizachia {
         user.setLogin(loginText);
         user.setPassword(loginPassword);
         ResultSet result = dbHandler.getUser(user);
-
         try {
             if (result.next()) {
+                user.setPhone(result.getString("phone"));
                 user.setRol(result.getString("rol"));
                 System.out.println("Пользователь: " + loginText + " имеет роль: " + user.getRol());
                 openRoleBasedWindow();

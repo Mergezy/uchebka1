@@ -11,61 +11,76 @@
 <?import javafx.scene.text.Font?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uchebka1.Admin">
-  <tabs>
-    <Tab style="-fx-background-color: #8d5f47;" text="Акаунты ">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #8d5f47;">
-               <children>
-                  <TableView layoutX="294.0" layoutY="26.0" prefHeight="269.0" prefWidth="286.0" style="-fx-background-color: #bd8f73;">
-                    <columns>
-                      <TableColumn fx:id="id_table_accounts" prefWidth="75.0" style="-fx-background-color: #7c5643;" text="ID" />
-                      <TableColumn fx:id="login_table_accounts" prefWidth="75.0" style="-fx-background-color: #7c5643;" text="Логин" />
-                        <TableColumn fx:id="phone_table_accounts" prefWidth="134.137451171875" style="-fx-background-color: #7c5643;" text="Номер телефона" />
-                    </columns>
-                  </TableView>
-                  <TextField fx:id="id_accounts" layoutX="45.0" layoutY="68.0" prefHeight="31.0" prefWidth="201.0" text="ID">
+    <tabs>
+        <Tab style="-fx-background-color: #8d5f47;" text="Акаунты ">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #8d5f47;">
+                    <children>
+                        <TableView fx:id="tableView" layoutX="294.0" layoutY="26.0" prefHeight="269.0" prefWidth="286.0" style="-fx-background-color: #bd8f73;">
+                            <columns>
+                                <TableColumn fx:id="id_table_accounts" prefWidth="75.0" style="-fx-background-color: #7c5643;" text="ID" />
+                                <TableColumn fx:id="login_table_accounts" prefWidth="75.0" style="-fx-background-color: #7c5643;" text="Логин" />
+                                <TableColumn fx:id="phone_table_accounts" prefWidth="134.137451171875" style="-fx-background-color: #7c5643;" text="Номер телефона" />
+                            </columns>
+                        </TableView>
+                        <TextField fx:id="id_accounts" layoutX="45.0" layoutY="43.0" prefHeight="32.0" prefWidth="200.0" promptText="id">
+                            <font>
+                                <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
+                            </font></TextField>
+                        <TextField fx:id="login_accounts" layoutX="45.0" layoutY="101.0" prefHeight="32.0" prefWidth="200.0" promptText="login">
+                            <font>
+                                <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
+                            </font></TextField>
+                        <TextField fx:id="phone_accounts" layoutX="44.0" layoutY="159.0" prefHeight="32.0" prefWidth="200.0" promptText="phone">
+                            <font>
+                                <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
+                            </font></TextField>
+                        <Button fx:id="dell_accounts" layoutX="184.0" layoutY="295.0" mnemonicParsing="false" style="-fx-background-color: #7c5643;" text="Удалить">
+                            <font>
+                                <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
+                            </font></Button>
+                        <Button fx:id="add_accounts" layoutX="41.0" layoutY="295.0" mnemonicParsing="false" style="-fx-background-color: #7c5643;" text="Добавить">
+                            <font>
+                                <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
+                            </font></Button>
+                        <Label layoutX="45.0" layoutY="26.0" text=" ID:" />
+                        <Label layoutX="44.0" layoutY="84.0" text="Логин:">
+                            <font>
+                                <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="45.0" layoutY="142.0" text="Номер телефона:">
+                            <font>
+                                <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
+                            </font>
+                        </Label>
+                  <Button fx:id="back" ellipsisString="↩" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="16.0" prefWidth="14.0" style="-fx-background-color: #7c5643;" text="&lt;" textAlignment="CENTER" textOverrun="CLIP">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="phone_accounts1" layoutX="44.0" layoutY="218.0" prefHeight="32.0" prefWidth="200.0" promptText="phone">
                      <font>
                         <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
-                     </font></TextField>
-                  <TextField fx:id="login_accounts" layoutX="43.0" layoutY="145.0" prefHeight="31.0" prefWidth="204.0" text="Логин">
-                     <font>
-                        <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
-                     </font></TextField>
-                  <TextField fx:id="phone_accounts" layoutX="43.0" layoutY="232.0" prefHeight="31.0" prefWidth="204.0" text="Номер телефона">
-                     <font>
-                        <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
-                     </font></TextField>
-                  <Button fx:id="dell_accounts" layoutX="184.0" layoutY="295.0" mnemonicParsing="false" style="-fx-background-color: #7c5643;" text="Удалить">
-                     <font>
-                        <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
-                     </font></Button>
-                  <Button fx:id="add_accounts" layoutX="41.0" layoutY="295.0" mnemonicParsing="false" style="-fx-background-color: #7c5643;" text="Добавить">
-                     <font>
-                        <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
-                     </font></Button>
-                  <Label layoutX="44.0" layoutY="26.0" text=" ID:" />
-                  <Label layoutX="44.0" layoutY="114.0" text="Логин:">
+                     </font>
+                  </TextField>
+                  <Label layoutX="45.0" layoutY="201.0" text="Пароль:">
                      <font>
                         <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="43.0" layoutY="194.0" text="Номер телефона:">
-                     <font>
-                        <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
-                     </font>
-                  </Label>
-               </children></AnchorPane>
-      </content>
-    </Tab>
-    <Tab text="Услуги">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
-    </Tab>
-      <Tab text="Зарегистрировать услугу">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-         </content>
-      </Tab>
-  </tabs>
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Услуги">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+        </Tab>
+        <Tab text="Зарегистрировать услугу">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+        </Tab>
+    </tabs>
 </TabPane>

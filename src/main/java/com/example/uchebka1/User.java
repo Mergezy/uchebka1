@@ -8,15 +8,18 @@ public class User {
     private String phone;
 
     public User(String login, String password, String phone, String rol) {
-        //this.idusers = idusers;
         this.login = login;
         this.password = password;
         this.rol = rol;
         this.phone = phone;
     }
 
+    public User(String idusers, String login, String phone) {
+        this.idusers = idusers;
+        this.login = login;
+        this.phone = phone;
+    }
     public User() {
-
     }
 
     public String getIdusers() {
@@ -57,5 +60,10 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+    public void getAllInfo() {System.out.println("login" + login +
+            " password " + password +
+            " rol " + rol +
+            " phone " + phone);
     }
 }

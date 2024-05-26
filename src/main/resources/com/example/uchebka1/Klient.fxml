@@ -23,15 +23,15 @@
                                 <TableColumn fx:id="phone_table_accounts" prefWidth="134.137451171875" style="-fx-background-color: #7c5643;" text="Номер телефона" />
                             </columns>
                         </TableView>
-                        <TextField fx:id="id_accounts" layoutX="45.0" layoutY="68.0" prefHeight="31.0" prefWidth="201.0" text="ID">
+                        <TextField fx:id="id_accounts" layoutX="45.0" layoutY="68.0" prefHeight="31.0" prefWidth="201.0" promptText="123">
                             <font>
                                 <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                             </font></TextField>
-                        <TextField fx:id="login_accounts" layoutX="43.0" layoutY="145.0" prefHeight="31.0" prefWidth="204.0" text="Логин">
+                        <TextField fx:id="login_accounts" layoutX="43.0" layoutY="145.0" prefHeight="31.0" prefWidth="204.0" text="User">
                             <font>
                                 <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                             </font></TextField>
-                        <TextField fx:id="phone_accounts" layoutX="43.0" layoutY="232.0" prefHeight="31.0" prefWidth="204.0" text="Номер телефона">
+                        <TextField fx:id="phone_accounts" layoutX="43.0" layoutY="232.0" prefHeight="31.0" prefWidth="204.0">
                             <font>
                                 <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                             </font></TextField>
@@ -54,6 +54,11 @@
                                 <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                             </font>
                         </Label>
+                  <Button fx:id="back" layoutX="540.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="24.0" prefWidth="40.0" style="-fx-background-color: #7c5643;" text="&lt;">
+                     <font>
+                        <Font name="Baskerville" size="13.0" />
+                     </font>
+                  </Button>
                     </children></AnchorPane>
             </content>
         </Tab>
