@@ -66,14 +66,36 @@ public class DataHelper extends Confics {
             PreparedStatement prSt = getDbConnection().prepareStatement(select);
             ResultSet resSet = prSt.executeQuery();
             while (resSet.next()) {
-                User user = new User(resSet.getString("idusers"),
-                        resSet.getString("login"),
-                        resSet.getString("phone"));
-                userList.add(user);
+                String role = resSet.getString("rol");
+                if ("2".equals(role)) {
+                    User user = new User(
+                            resSet.getString("idusers"),
+                            resSet.getString("login"),
+                            resSet.getString("phone"));
+                    userList.add(user);
+                }
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return userList;
+    }
+    public void registerEvent(String type_of_event, String date, String name_of_event, Boolean verified, String count_people, User user) {
+        String insert = "INSERT INTO event_date (type_of_event, date, name_of_event, verified, count_people, user_id) " +
+                "VALUES (?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(insert);
+            prSt.setString(1, type_of_event);
+            prSt.setString(2, date);
+            prSt.setString(3, name_of_event);
+            prSt.setBoolean(4, verified);
+            prSt.setString(5, count_people);
+            prSt.setString(6, user.getIdusers());
+
+            //prSt.executeUpdate();
+            System.out.println(type_of_event + ", " + date + ", " + name_of_event + ", " + count_people + ", " + user.getIdusers());
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

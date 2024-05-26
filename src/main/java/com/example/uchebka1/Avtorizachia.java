@@ -86,6 +86,7 @@ public class Avtorizachia {
             if (result.next()) {
                 user.setPhone(result.getString("phone"));
                 user.setRol(result.getString("rol"));
+                user.setIdusers(result.getString("idusers"));
                 openRoleBasedWindow();
             } else {
                 showAlert("Пользователь не найден или неверный пароль.");

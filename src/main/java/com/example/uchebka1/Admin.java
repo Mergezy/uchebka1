@@ -47,6 +47,7 @@ public class Admin {
 
     @FXML
     private TextField phone_accounts;
+
     @FXML
     private TextField password_accounts;
 

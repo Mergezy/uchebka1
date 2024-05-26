@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uchebka1.Admin">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uchebka1.Admin">
     <tabs>
         <Tab style="-fx-background-color: #8d5f47;" text="Акаунты ">
             <content>
@@ -67,14 +67,28 @@
                     </children></AnchorPane>
             </content>
         </Tab>
-        <Tab text="Зарегистрировать услугу">
+        <Tab text="Звявки">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
         </Tab>
-        <Tab text="Услуги">
+        <Tab style="-fx-background-color: #8d5f47;" text="Услуги">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="tableView1" layoutX="-2.0" prefHeight="371.0" prefWidth="606.0" style="-fx-background-color: #bd8f73;">
+                     <columns>
+                        <TableColumn fx:id="id" prefWidth="45.0" style="-fx-background-color: #7c5643;" text="ID" />
+                        <TableColumn fx:id="type" prefWidth="75.0" style="-fx-background-color: #7c5643;" text="Тип" />
+                        <TableColumn fx:id="date" style="-fx-background-color: #7c5643;" text="Дата" />
+                        <TableColumn fx:id="name_event" prefWidth="84.0" style="-fx-background-color: #7c5643;" text="Название" />
+                        <TableColumn fx:id="count" prefWidth="59.0" style="-fx-background-color: #7c5643;" text="Кол-во" />
+                        <TableColumn fx:id="name_user" prefWidth="74.0" style="-fx-background-color: #7c5643;" text="Имя" />
+                        <TableColumn fx:id="phone" prefWidth="92.0" style="-fx-background-color: #7c5643;" text="Телефон" />
+                        <TableColumn fx:id="verefecation" prefWidth="96.0" style="-fx-background-color: #7c5643;" text="Верефикация" />
+                     </columns>
+                  </TableView>
+               </children></AnchorPane>
             </content>
         </Tab>
     </tabs>
