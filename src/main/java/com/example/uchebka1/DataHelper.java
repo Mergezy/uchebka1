@@ -3,7 +3,7 @@ package com.example.uchebka1;
 import java.sql.*;
 
 public class DataHelper extends Confics {
-    Connection dbConnection = null;
+    static Connection dbConnection = null;
 
     public Connection getDbConnection()
             throws ClassNotFoundException, SQLException {
@@ -18,24 +18,23 @@ public class DataHelper extends Confics {
     }
     public void sinUpUser(User user) {
         // SQL запрос устанавливающий данные
-        String insert = "INSERT INTO " + Const.USER_TABLE + "(" +
-                Const.USERS_USERNAME + "," + Const.USERS_PASSWORD +",rol" +")" +
-                "VALUES(?,?,?,?)";
-        try {// для получения соединения с базой данных.
+        String insert = "INSERT INTO " + Const.USER_TABLE + " (" +
+                Const.USERS_USERNAME + ", " + Const.USERS_PASSWORD + ", " + Const.USERS_PHONE + ", rol) " +
+                "VALUES (?, ?, ?, ?)";
+
+        try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
-            prSt.setString(1, user.getIdusers());
-            prSt.setString(2, user.getLogin());
-            prSt.setString(3, user.getPassword());
+            prSt.setString(1, user.getLogin());
+            prSt.setString(2, user.getPassword());
+            prSt.setString(3, user.getPhone());
             prSt.setString(4, user.getRol());
 
-
             prSt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
+
     public ResultSet getUser(User user) {
         ResultSet resSet = null;
 
@@ -50,9 +49,7 @@ public class DataHelper extends Confics {
             prSt.setString(2, user.getPassword());
 
             resSet = prSt.executeQuery();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         return resSet;

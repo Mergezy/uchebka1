@@ -46,7 +46,11 @@ public class Avtorizachia {
 
             String loginText = login_text.getText().trim();
             enter_button.getScene().getWindow().hide();
-            if (!loginText.equals("") && !password_text.equals("")) loginUser(loginText, password_text);
+            if (!loginText.equals("") && !password_text.equals(""))
+            {
+                loginUser(loginText, password_text);
+            }
+
             else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Message");

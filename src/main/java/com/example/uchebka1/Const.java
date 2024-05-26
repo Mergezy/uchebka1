@@ -7,5 +7,6 @@ public class Const {
         public static final String USERS_USERNAME = "login";
         public static final String USERS_PASSWORD= "password";
         public static final String USERS_ROLE = "rol";
+        public static final String USERS_PHONE = "phone";
 
     }

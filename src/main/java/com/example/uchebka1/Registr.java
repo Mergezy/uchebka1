@@ -63,7 +63,7 @@ public class Registr {
         String Name = login_registr.getText();
         String phone = phone_registr.getText();
 
-        User user = new User(Name,password, phone,"2");
+        User user = new User(Name, password, phone,"2");
 
         if(!login_registr.getText().isEmpty() && !TF3.getText().isEmpty() && !phone_registr.getText().isEmpty()){
             dbHandler.sinUpUser(user);

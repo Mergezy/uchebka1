@@ -5,18 +5,19 @@ public class User {
     private String login;
     private String password;
     private String rol;
+    private String phone;
 
-    public User(String idusers, String login, String password, String rol) {
-        this.idusers = idusers;
+    public User(String login, String password, String phone, String rol) {
+        //this.idusers = idusers;
         this.login = login;
         this.password = password;
         this.rol = rol;
+        this.phone = phone;
     }
 
     public User() {
 
     }
-
 
     public String getIdusers() {
         return idusers;
@@ -48,5 +49,13 @@ public class User {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
