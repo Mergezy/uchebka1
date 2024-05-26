@@ -67,12 +67,12 @@
                     </children></AnchorPane>
             </content>
         </Tab>
-        <Tab text="Услуги">
+        <Tab text="Зарегистрировать услугу">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
         </Tab>
-        <Tab text="Зарегистрировать услугу">
+        <Tab text="Услуги">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
