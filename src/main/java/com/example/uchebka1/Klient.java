@@ -81,7 +81,7 @@ public class Klient {
                 showAlert(Alert.AlertType.ERROR, "Ошибка", "Название не может быть пустым.");
             } else {
                 DataHelper dbhelper = new DataHelper();
-                dbhelper.registerEvent(services.getText(), selectedDate.toString(), name_of_event.getText(), true, countText, Avtorizachia.user);
+                dbhelper.registerEvent(services.getText(), selectedDate.toString(), name_of_event.getText(), countText, Avtorizachia.user);
             }
         } catch (NumberFormatException e) {
             showAlert(Alert.AlertType.ERROR, "Ошибка", "Неверное значение для количества людей. Введите число от 0 до 100000.");

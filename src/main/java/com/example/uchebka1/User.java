@@ -11,7 +11,6 @@ public class User {
     private String password;
     private String rol;
     private String phone;
-    private Boolean verified;
 
     public User(String login, String password, String phone, String rol) {
         this.login = login;
@@ -27,7 +26,7 @@ public class User {
     }
     public User() {
     }
-    public User(String idevent, String ignoredType_of_event, String date, String name_of_event, String count_people, String login, String phone, Boolean verified) {
+    public User(String idevent, String ignoredType_of_event, String date, String name_of_event, String count_people, String login, String phone) {
 
         this.idevent = idevent;
         this.typeOfEvent = ignoredType_of_event;
@@ -36,7 +35,6 @@ public class User {
         this.countPeople = count_people;
         this.login = login;
         this.phone = phone;
-        this.verified = verified;
     }
     public String getIdusers() {
         return idusers;
@@ -78,14 +76,6 @@ public class User {
         this.phone = phone;
     }
 
-    public Boolean isVerified() {
-        return verified;
-    }
-
-    public void setVerified(Boolean verified) {
-        this.verified = verified;
-    }
-
     public String getIdevent() {
         return idevent;
     }
@@ -124,8 +114,5 @@ public class User {
 
     public void setCountPeople(String countPeople) {
         this.countPeople = countPeople;
-    }
-    public void ToString(){
-        System.out.println(idevent+", "+typeOfEvent +", "+date +", "+nameOfEvent +", "+countPeople +", "+idusers +", "+login +", "+phone +", "+verified);
     }
 }

@@ -84,32 +84,18 @@ public class DataHelper extends Confics {
         return userList;
     }
 
-    public void updateUserVerification(User user) {
-        String updateQuery = "UPDATE " + Const.USER_TABLE + " SET verified = ? WHERE " + Const.USERS_ID + "=?";
-        try {
-            PreparedStatement preparedStatement = getDbConnection().prepareStatement(updateQuery);
-            preparedStatement.setBoolean(1, user.isVerified());
-            preparedStatement.setString(2, user.getIdusers());
-            preparedStatement.executeUpdate();
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void registerEvent(String type_of_event, String date, String name_of_event, Boolean verified, String count_people, User user) {
-        String insert = "INSERT INTO event_date (type_of_event, date, name_of_event, verified, count_people, user_id) " +
-                "VALUES (?, ?, ?, ?, ?, ?)";
+    public void registerEvent(String type_of_event, String date, String name_of_event, String count_people, User user) {
+        String insert = "INSERT INTO event_date (type_of_event, date, name_of_event, count_people, user_id) " +
+                "VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
             prSt.setString(1, type_of_event);
             prSt.setString(2, date);
             prSt.setString(3, name_of_event);
-            prSt.setBoolean(4, verified);
-            prSt.setString(5, count_people);
-            prSt.setString(6, user.getIdusers());
+            prSt.setString(4, count_people);
+            prSt.setString(5, user.getIdusers());
 
-            //prSt.executeUpdate();
-            System.out.println(type_of_event + ", " + date + ", " + name_of_event + ", " + count_people + ", " + user.getIdusers());
+            prSt.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -130,10 +116,8 @@ public class DataHelper extends Confics {
                 String count_people = resSet.getString("count_people");
                 String nameuser = resSet.getString("login");
                 String phone = resSet.getString("phone");
-                Boolean verified = resSet.getBoolean("verified");
 
-                User user = new User(idevent, type_of_event, date, name_of_event, count_people, nameuser, phone, verified);
-                user.ToString();
+                User user = new User(idevent, type_of_event, date, name_of_event, count_people, nameuser, phone);
                 eventList.add(user);
             }
         } catch (SQLException | ClassNotFoundException e) {

@@ -67,11 +67,6 @@
                     </children></AnchorPane>
             </content>
         </Tab>
-        <Tab text="Звявки">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-        </Tab>
         <Tab fx:id="tableEventWindow" style="-fx-background-color: #8d5f47;" text="Услуги">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">

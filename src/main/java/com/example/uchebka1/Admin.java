@@ -55,8 +55,6 @@ public class Admin {
     private TableColumn<User, String> name_user;
     @FXML
     private TableColumn<User, String> phone;
-    @FXML
-    private TableColumn<User, Boolean> verified;
 
     @FXML
     private Button back;
@@ -81,31 +79,6 @@ public class Admin {
         name_user.setCellValueFactory(new PropertyValueFactory<>("login"));
         phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
 
-        verified.setCellFactory(column -> new TableCell<User, Boolean>() {
-            private final Button button = new Button("Approve");
-
-            {
-                button.setOnAction(event -> {
-                    User user = getTableView().getItems().get(getIndex());
-                    user.setVerified(true);
-                    dbHandler.updateUserVerification(user);
-                    getTableView().refresh();
-                });
-            }
-
-            @Override
-            protected void updateItem(Boolean item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty || item == null) {
-                    setGraphic(null);
-                    setText(null);
-                } else {
-                    setGraphic(button);
-                    setText(item ? "true" : "false");
-                }
-            }
-        });
-
         loadEventData();
     }
 
@@ -120,8 +93,8 @@ public class Admin {
 
     private void loadEventData() {
         try {
-            ObservableList<User> eventList = dbHandler.getEvent();
-            tableEvent.setItems(eventList);
+            ObservableList<User> userList1 = dbHandler.getEvent();
+            tableEvent.setItems(userList1);
         } catch (Exception e) {
             e.printStackTrace();
         }
