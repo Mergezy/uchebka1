@@ -16,7 +16,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #8d5f47;">
                     <children>
-                        <TableView fx:id="tableView" layoutX="294.0" layoutY="26.0" prefHeight="269.0" prefWidth="286.0" style="-fx-background-color: #bd8f73;">
+                        <TableView fx:id="tableView" layoutX="294.0" layoutY="26.0" prefHeight="269.0" prefWidth="287.0" style="-fx-background-color: #bd8f73;">
                             <columns>
                                 <TableColumn fx:id="id_table_accounts" prefWidth="75.0" style="-fx-background-color: #7c5643;" text="ID" />
                                 <TableColumn fx:id="login_table_accounts" prefWidth="75.0" style="-fx-background-color: #7c5643;" text="Логин" />
@@ -49,21 +49,21 @@
                                 <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
                             </font>
                         </Label>
-                  <Button fx:id="back" ellipsisString="↩" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="3.0" prefWidth="31.0" style="-fx-background-color: #7c5643;" text="&lt;" textAlignment="CENTER" textOverrun="CLIP">
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                  </Button>
-                  <TextField fx:id="password_accounts" layoutX="42.0" layoutY="189.0" prefHeight="32.0" prefWidth="200.0" promptText="password">
-                     <font>
-                        <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="42.0" layoutY="172.0" text="Пароль:">
-                     <font>
-                        <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
-                     </font>
-                  </Label>
+                        <Button fx:id="back" ellipsisString="↩" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="3.0" prefWidth="31.0" style="-fx-background-color: #7c5643;" text="&lt;" textAlignment="CENTER" textOverrun="CLIP">
+                            <font>
+                                <Font size="11.0" />
+                            </font>
+                        </Button>
+                        <TextField fx:id="password_accounts" layoutX="42.0" layoutY="189.0" prefHeight="32.0" prefWidth="200.0" promptText="password">
+                            <font>
+                                <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
+                            </font>
+                        </TextField>
+                        <Label layoutX="42.0" layoutY="172.0" text="Пароль:">
+                            <font>
+                                <Font name="Noto Sans Kannada ExtraLight" size="12.0" />
+                            </font>
+                        </Label>
                     </children></AnchorPane>
             </content>
         </Tab>
@@ -72,23 +72,23 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
         </Tab>
-        <Tab style="-fx-background-color: #8d5f47;" text="Услуги">
+        <Tab fx:id="tableEventWindow" style="-fx-background-color: #8d5f47;" text="Услуги">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView fx:id="tableView1" layoutX="-2.0" prefHeight="371.0" prefWidth="606.0" style="-fx-background-color: #bd8f73;">
-                     <columns>
-                        <TableColumn fx:id="id" prefWidth="45.0" style="-fx-background-color: #7c5643;" text="ID" />
-                        <TableColumn fx:id="type" prefWidth="75.0" style="-fx-background-color: #7c5643;" text="Тип" />
-                        <TableColumn fx:id="date" style="-fx-background-color: #7c5643;" text="Дата" />
-                        <TableColumn fx:id="name_event" prefWidth="84.0" style="-fx-background-color: #7c5643;" text="Название" />
-                        <TableColumn fx:id="count" prefWidth="59.0" style="-fx-background-color: #7c5643;" text="Кол-во" />
-                        <TableColumn fx:id="name_user" prefWidth="74.0" style="-fx-background-color: #7c5643;" text="Имя" />
-                        <TableColumn fx:id="phone" prefWidth="92.0" style="-fx-background-color: #7c5643;" text="Телефон" />
-                        <TableColumn fx:id="verefecation" prefWidth="96.0" style="-fx-background-color: #7c5643;" text="Верефикация" />
-                     </columns>
-                  </TableView>
-               </children></AnchorPane>
+                    <children>
+                        <TableView fx:id="tableEvent" layoutY="-1.0" prefHeight="373.0" prefWidth="608.0" style="-fx-background-color: #bd8f73;" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="-2.0">
+                            <columns>
+                                <TableColumn fx:id="id" prefWidth="45.0" style="-fx-background-color: #7c5643;" text="ID" />
+                                <TableColumn fx:id="type" prefWidth="75.0" style="-fx-background-color: #7c5643;" text="Тип" />
+                                <TableColumn fx:id="date" style="-fx-background-color: #7c5643;" text="Дата" />
+                                <TableColumn fx:id="name_event" prefWidth="84.0" style="-fx-background-color: #7c5643;" text="Название" />
+                                <TableColumn fx:id="count" prefWidth="59.0" style="-fx-background-color: #7c5643;" text="Кол-во" />
+                                <TableColumn fx:id="name_user" prefWidth="74.0" style="-fx-background-color: #7c5643;" text="Имя" />
+                                <TableColumn fx:id="phone" prefWidth="92.0" style="-fx-background-color: #7c5643;" text="Телефон" />
+                                <TableColumn fx:id="verified" editable="true" prefWidth="100.0" resizable="false" style="-fx-background-color: #7c5643;" text="Верификация" />
+                            </columns>
+                        </TableView>
+                    </children></AnchorPane>
             </content>
         </Tab>
     </tabs>

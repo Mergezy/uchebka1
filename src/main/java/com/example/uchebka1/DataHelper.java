@@ -19,6 +19,7 @@ public class DataHelper extends Confics {
         // возвращает правильный метод
         return dbConnection;
     }
+
     public void sinUpUser(User user) {
         // SQL запрос устанавливающий данные
         String insert = "INSERT INTO " + Const.USER_TABLE + " (" +
@@ -52,6 +53,7 @@ public class DataHelper extends Confics {
         }
         return resSet;
     }
+
     public void deleteUser(String userId) throws SQLException, ClassNotFoundException {
         String delete = "DELETE FROM " + Const.USER_TABLE + " WHERE " + Const.USERS_ID + "=?";
         try (PreparedStatement prSt = getDbConnection().prepareStatement(delete)) {
@@ -59,6 +61,7 @@ public class DataHelper extends Confics {
             prSt.executeUpdate();
         }
     }
+
     public ObservableList<User> getAllUsers() {
         ObservableList<User> userList = FXCollections.observableArrayList();
         String select = "SELECT * FROM " + Const.USER_TABLE;
@@ -80,6 +83,19 @@ public class DataHelper extends Confics {
         }
         return userList;
     }
+
+    public void updateUserVerification(User user) {
+        String updateQuery = "UPDATE " + Const.USER_TABLE + " SET verified = ? WHERE " + Const.USERS_ID + "=?";
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(updateQuery);
+            preparedStatement.setBoolean(1, user.isVerified());
+            preparedStatement.setString(2, user.getIdusers());
+            preparedStatement.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void registerEvent(String type_of_event, String date, String name_of_event, Boolean verified, String count_people, User user) {
         String insert = "INSERT INTO event_date (type_of_event, date, name_of_event, verified, count_people, user_id) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
@@ -97,5 +113,32 @@ public class DataHelper extends Confics {
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+    public ObservableList<User> getEvent() {
+        ObservableList<User> eventList = FXCollections.observableArrayList();
+        String selectEvent = "SELECT event_date.*, users.login AS login, users.phone AS phone " +
+                "FROM event_date " +
+                "JOIN users ON event_date.user_id = users.idusers";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(selectEvent);
+            ResultSet resSet = prSt.executeQuery();
+            while (resSet.next()) {
+                String idevent = resSet.getString("idevent_date");
+                String type_of_event = resSet.getString("type_of_event");
+                String date = resSet.getString("date");
+                String name_of_event = resSet.getString("name_of_event");
+                String count_people = resSet.getString("count_people");
+                String nameuser = resSet.getString("login");
+                String phone = resSet.getString("phone");
+                Boolean verified = resSet.getBoolean("verified");
+
+                User user = new User(idevent, type_of_event, date, name_of_event, count_people, nameuser, phone, verified);
+                user.ToString();
+                eventList.add(user);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return eventList;
     }
 }

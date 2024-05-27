@@ -8,5 +8,5 @@ public class Const {
         public static final String USERS_PASSWORD= "password";
         public static final String USERS_ROLE = "rol";
         public static final String USERS_PHONE = "phone";
-
-    }
+        public static final String EVENT_TABLE = "event_date";
+}

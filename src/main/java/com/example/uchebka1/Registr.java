@@ -23,7 +23,7 @@ public class Registr {
     private Button back;
 
     @FXML
-    private TextField login_registr;
+    private TextField login_registr;//хранит пароль
 
     @FXML
     private TextField phone_registr;
@@ -67,13 +67,11 @@ public class Registr {
     }
 
     public void signUpNewUser(String login_registr, String passwordS, String phone_registr) {
-        String p1 = passwordS;
-        String password = hashString(p1);
+        String p1 = login_registr;
+        String password = hashString(login_registr);
 
-        String Name = login_registr;
-        String phone = phone_registr;
-
-        User user = new User(Name, password, phone,"2");
+        User user = new User(passwordS, password, phone_registr,"2");
+        System.out.println(passwordS+", "+password+", "+phone_registr);
         if(!login_registr.isEmpty() && !passwordS.isEmpty() && !phone_registr.isEmpty()){
             dbHandler.sinUpUser(user);
 

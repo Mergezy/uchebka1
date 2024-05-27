@@ -1,11 +1,17 @@
 package com.example.uchebka1;
 
 public class User {
+    private String idevent;
+    private String typeOfEvent;
+    private String date;
+    private String nameOfEvent;
+    private String countPeople;
     private String idusers;
     private String login;
     private String password;
     private String rol;
     private String phone;
+    private Boolean verified;
 
     public User(String login, String password, String phone, String rol) {
         this.login = login;
@@ -21,7 +27,17 @@ public class User {
     }
     public User() {
     }
+    public User(String idevent, String ignoredType_of_event, String date, String name_of_event, String count_people, String login, String phone, Boolean verified) {
 
+        this.idevent = idevent;
+        this.typeOfEvent = ignoredType_of_event;
+        this.date = date;
+        this.nameOfEvent = name_of_event;
+        this.countPeople = count_people;
+        this.login = login;
+        this.phone = phone;
+        this.verified = verified;
+    }
     public String getIdusers() {
         return idusers;
     }
@@ -60,5 +76,56 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Boolean isVerified() {
+        return verified;
+    }
+
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
+    }
+
+    public String getIdevent() {
+        return idevent;
+    }
+
+    public void setIdevent(String idevent) {
+        this.idevent = idevent;
+    }
+
+    public String getTypeOfEvent() {
+        return typeOfEvent;
+    }
+
+    public void setTypeOfEvent(String typeOfEvent) {
+        this.typeOfEvent = typeOfEvent;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getNameOfEvent() {
+        return nameOfEvent;
+    }
+
+    public void setNameOfEvent(String nameOfEvent) {
+        this.nameOfEvent = nameOfEvent;
+    }
+
+    public String getCountPeople() {
+        return countPeople;
+    }
+
+    public void setCountPeople(String countPeople) {
+        this.countPeople = countPeople;
+    }
+    public void ToString(){
+        System.out.println(idevent+", "+typeOfEvent +", "+date +", "+nameOfEvent +", "+countPeople +", "+idusers +", "+login +", "+phone +", "+verified);
     }
 }

@@ -1,34 +1,17 @@
 package com.example.uchebka1;
 
-import java.awt.*;
-import java.io.IOException;
-import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
-
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import static com.example.uchebka1.Avtorizachia.user;
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class Admin {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button add_accounts;
@@ -56,6 +39,24 @@ public class Admin {
 
     @FXML
     private TableView<User> tableView;
+    @FXML
+    private TableView<User> tableEvent;
+    @FXML
+    private TableColumn<User, String> id;
+    @FXML
+    private TableColumn<User, String> type;
+    @FXML
+    private TableColumn<User, String> date;
+    @FXML
+    private TableColumn<User, String> name_event;
+    @FXML
+    private TableColumn<User, String> count;
+    @FXML
+    private TableColumn<User, String> name_user;
+    @FXML
+    private TableColumn<User, String> phone;
+    @FXML
+    private TableColumn<User, Boolean> verified;
 
     @FXML
     private Button back;
@@ -69,8 +70,43 @@ public class Admin {
         phone_table_accounts.setCellValueFactory(new PropertyValueFactory<>("phone"));
 
         loadUserData();
-        dell_accounts.setOnAction(even -> deleteSelectedItem());
-        add_accounts.setOnAction(even -> addNewUser());
+        dell_accounts.setOnAction(event -> deleteSelectedItem());
+        add_accounts.setOnAction(event -> addNewUser());
+
+        id.setCellValueFactory(new PropertyValueFactory<>("idevent"));
+        type.setCellValueFactory(new PropertyValueFactory<>("typeOfEvent"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        name_event.setCellValueFactory(new PropertyValueFactory<>("nameOfEvent"));
+        count.setCellValueFactory(new PropertyValueFactory<>("countPeople"));
+        name_user.setCellValueFactory(new PropertyValueFactory<>("login"));
+        phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+
+        verified.setCellFactory(column -> new TableCell<User, Boolean>() {
+            private final Button button = new Button("Approve");
+
+            {
+                button.setOnAction(event -> {
+                    User user = getTableView().getItems().get(getIndex());
+                    user.setVerified(true);
+                    dbHandler.updateUserVerification(user);
+                    getTableView().refresh();
+                });
+            }
+
+            @Override
+            protected void updateItem(Boolean item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setGraphic(null);
+                    setText(null);
+                } else {
+                    setGraphic(button);
+                    setText(item ? "true" : "false");
+                }
+            }
+        });
+
+        loadEventData();
     }
 
     private void loadUserData() {
@@ -82,44 +118,50 @@ public class Admin {
         }
     }
 
+    private void loadEventData() {
+        try {
+            ObservableList<User> eventList = dbHandler.getEvent();
+            tableEvent.setItems(eventList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void deleteSelectedItem() {
         User selectedUser = tableView.getSelectionModel().getSelectedItem();
         if (selectedUser != null) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION); 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             try {
                 dbHandler.deleteUser(selectedUser.getIdusers());
                 tableView.getItems().remove(selectedUser);
             } catch (SQLException e) {
                 e.printStackTrace();
-
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
         }
         loadUserData();
     }
+
     private void addNewUser() {
-        login_accounts.getText();
-        phone_accounts.getText();
-        password_accounts.getText();
+        String login = login_accounts.getText();
+        String phone = phone_accounts.getText();
+        String password = password_accounts.getText();
 
         Registr registr = new Registr();
-        registr.signUpNewUser(login_accounts.getText(),password_accounts.getText(),phone_accounts.getText());
+        registr.signUpNewUser(login, password, phone);
         loadUserData();
     }
+
     public void back() {
         back.getScene().getWindow().hide();
 
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("Avtiriz.xml.fxml"));
         try {
-            loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("Avtiriz.xml.fxml"))));
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
     }
 }
