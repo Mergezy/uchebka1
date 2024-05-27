@@ -79,13 +79,12 @@
                         <TableView fx:id="tableEvent" layoutY="-1.0" prefHeight="373.0" prefWidth="608.0" style="-fx-background-color: #bd8f73;" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="-2.0">
                             <columns>
                                 <TableColumn fx:id="id" prefWidth="45.0" style="-fx-background-color: #7c5643;" text="ID" />
-                                <TableColumn fx:id="type" prefWidth="75.0" style="-fx-background-color: #7c5643;" text="Тип" />
-                                <TableColumn fx:id="date" style="-fx-background-color: #7c5643;" text="Дата" />
-                                <TableColumn fx:id="name_event" prefWidth="84.0" style="-fx-background-color: #7c5643;" text="Название" />
-                                <TableColumn fx:id="count" prefWidth="59.0" style="-fx-background-color: #7c5643;" text="Кол-во" />
-                                <TableColumn fx:id="name_user" prefWidth="74.0" style="-fx-background-color: #7c5643;" text="Имя" />
-                                <TableColumn fx:id="phone" prefWidth="92.0" style="-fx-background-color: #7c5643;" text="Телефон" />
-                                <TableColumn fx:id="verified" editable="true" prefWidth="100.0" resizable="false" style="-fx-background-color: #7c5643;" text="Верификация" />
+                                <TableColumn fx:id="type" prefWidth="82.0" style="-fx-background-color: #7c5643;" text="Тип" />
+                                <TableColumn fx:id="date" prefWidth="73.0" style="-fx-background-color: #7c5643;" text="Дата" />
+                                <TableColumn fx:id="name_event" prefWidth="92.0" style="-fx-background-color: #7c5643;" text="Название" />
+                                <TableColumn fx:id="count" prefWidth="142.0" style="-fx-background-color: #7c5643;" text="Количество человек" />
+                                <TableColumn fx:id="name_user" prefWidth="68.0" style="-fx-background-color: #7c5643;" text="Имя" />
+                                <TableColumn fx:id="phone" prefWidth="100.0" style="-fx-background-color: #7c5643;" text="Телефон" />
                             </columns>
                         </TableView>
                     </children></AnchorPane>
