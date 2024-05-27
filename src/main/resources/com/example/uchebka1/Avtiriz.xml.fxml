@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="644.0" style="-fx-background-color: #8d5f47;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uchebka1.Avtorizachia">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="644.0" style="-fx-background-color: #8d5f47;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uchebka1.Avtorizachia">
    <children>
-      <ImageView fitHeight="447.0" fitWidth="401.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="447.0" fitWidth="401.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="287.01849365234375" AnchorPane.topAnchor="-1.0">
          <image>
             <Image url="@../../../image/b013fafd89dbc26e9095837057e2e80a.jpeg" />
          </image>

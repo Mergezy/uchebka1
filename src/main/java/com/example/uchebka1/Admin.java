@@ -122,7 +122,7 @@ public class Admin {
         String password = password_accounts.getText();
 
         Registr registr = new Registr();
-        registr.signUpNewUser(login, password, phone);
+        registr.signUpNewUser(password,login, phone);
         loadUserData();
     }
 
